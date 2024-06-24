@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <link rel="stylesheet" href="/estilo/media.queries.css">
+    <link rel="stylesheet" href="estilo/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+</head>
+<body>
+    <main id="container">
+        <div id="formulario">
+            <h1>Formulário</h1>
+            <p>Para enviar o formulário, preencha os campos abaixo:</p>
+
+            <form action="formulario" method="POST" autocomplete="on">
+                <div class="campo">
+                    <span class="material-symbols-outlined">person</span>
+                    <input type="text" name="nome" id="inome" class="mensagem" placeholder="Nome:">
+                    <label for="inome">Nome</label>
+                </div>
+                <div class="campo">
+                    <span class="material-symbols-outlined">mail</span>
+                    <input type="email" name="email" id="iemail" class="mensagem" placeholder="Email:" minlength="3">
+                    <label for="iemail">Email</label>
+                </div>
+                <div class="campo">
+                    <span class="material-symbols-outlined">problem</span>
+                    <input type="text" name="text" id="itext" class="mensagem" placeholder="Sua Mensagem:" minlength="10">
+                    <label for="itext">Mensagem</label>
+                </div>
+                <div class="campo">
+                    <input type="submit" value="Enviar">
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
