@@ -15,21 +15,24 @@
             <h1>Formulário</h1>
             <p>Para enviar o formulário, preencha os campos abaixo:</p>
 
-            <form action="formulario" method="POST" autocomplete="on">
+            <form id="iform" action="formulario.php" method="POST" autocomplete="on">
                 <div class="campo">
                     <span class="material-symbols-outlined">person</span>
                     <input type="text" name="nome" id="inome" class="mensagem" placeholder="Nome:">
                     <label for="inome">Nome</label>
+                    <div id="inomeError" class="error"></div>
                 </div>
                 <div class="campo">
                     <span class="material-symbols-outlined">mail</span>
-                    <input type="email" name="email" id="iemail" class="mensagem" placeholder="Email:" minlength="3">
+                    <input type="email" name="email" id="iemail" class="mensagem" placeholder="Email:" minlength="3" required>
                     <label for="iemail">Email</label>
+                    <div id="iemailError" class="error"></div>
                 </div>
                 <div class="campo">
                     <span class="material-symbols-outlined">problem</span>
-                    <input type="text" name="text" id="itext" class="mensagem" placeholder="Sua Mensagem:" minlength="10">
+                    <input type="text" name="text" id="itext" class="mensagem" placeholder="Sua Mensagem:" minlength="10" required>
                     <label for="itext">Mensagem</label>
+                    <div id="imessagemError" class="error"></div>
                 </div>
                 <div class="campo">
                     <input type="submit" value="Enviar">
@@ -37,5 +40,39 @@
             </form>
         </div>
     </main>
+    <script>
+        document.getElementById('iform').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Limpar mensagens de erro anteriores
+    document.getElementById('inomeError').textContent = '';
+    document.getElementById('iemailError').textContent = '';
+    document.getElementById('imensagemError').textContent = '';
+
+    // Validar Nome
+    var nome = document.getElementById('inome').value;
+    if (nome.length < 3) {
+        document.getElementById('inomeError').textContent = 'O nome deve ter pelo menos 3 caracteres.';
+        return false;
+    }
+
+    // Validar Email
+    var email = document.getElementById('iemail').value;
+    var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (!emailPattern.test(email)) {
+        document.getElementById('iemailError').textContent = 'Por favor, insira um email válido.';
+        return false;
+    }
+
+    // Validar Mensagem
+    var mensagem = document.getElementById('imensagem').value;
+    if (mensagem.length < 10) {
+        document.getElementById('imensagemError').textContent = 'A mensagem deve ter pelo menos 10 caracteres.';
+        return false;
+    }
+
+    // Se todas as validações passarem, submeter o formulário
+    this.submit();
+    </script>
 </body>
 </html>

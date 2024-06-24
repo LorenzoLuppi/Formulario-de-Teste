@@ -151,3 +151,8 @@ input[type=submit]:hover {
     border: solid #62acdd;
     background-color: #2978a3;
 }
+
+.error {
+    color: red;
+    font-size: 0.9em;
+}
